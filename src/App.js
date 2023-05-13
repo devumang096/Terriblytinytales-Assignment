@@ -2,6 +2,7 @@ import React from 'react';
 import WordFrequency from './components/WordFrequency';
 import HistogramChart from './components/HistogramChart';
 import ExportButton from './components/ExportButton';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,10 +10,12 @@ class App extends React.Component {
     this.state = {
       data: null,
       histogramData: null,
+      isLoading: false,
     };
   }
 
   handleFetch = async () => {
+    this.setState({ isLoading: true });
     const response = await fetch('https://www.terriblytinytales.com/test.txt');
     const text = await response.text();
     const words = text.split(/\W+/);
@@ -24,17 +27,30 @@ class App extends React.Component {
     });
     const frequencyArray = Object.entries(frequencyMap).sort((a, b) => b[1] - a[1]).slice(0, 20);
     const histogramData = frequencyArray.map(([word, frequency]) => ({ word, frequency }));
-    this.setState({ data: frequencyMap, histogramData });
+    this.setState({ data: frequencyMap, histogramData, isLoading: false });
   };
 
   render() {
-    const { data, histogramData } = this.state;
+    const { data, histogramData, isLoading } = this.state;
     return (
-      <div>
-        <button onClick={this.handleFetch}>Submit</button>
-        {histogramData && <HistogramChart data={histogramData} />}
-        {histogramData && <ExportButton data={histogramData} />}
-        {data && <WordFrequency data={data} />}
+      <div className="App">
+        <div className="header">
+          <h1>Word Frequency Counter</h1>
+        </div>
+        <div className="container">
+          <div className="form">
+            <button className="submit-btn" onClick={this.handleFetch} disabled={isLoading}>
+              {isLoading ? 'Loading...' : 'Submit'}
+            </button>
+          </div>
+          <div className="chart">
+            {histogramData && <HistogramChart data={histogramData} />}
+            {histogramData && <ExportButton data={histogramData} />}
+          </div>
+          <div className="table">
+            {data && <WordFrequency data={data} />}
+          </div>
+        </div>
       </div>
     );
   }

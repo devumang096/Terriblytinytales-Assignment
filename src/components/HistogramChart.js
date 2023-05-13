@@ -7,7 +7,7 @@ const HistogramChart = ({ data }) => (
     <YAxis />
     <Tooltip />
     <Legend />
-    <Bar dataKey="frequency" fill="#8884d8" />
+    <Bar dataKey="frequency" fill="#03a9f4" />
   </BarChart>
 );
 

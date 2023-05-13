@@ -1,7 +1,7 @@
 import React from 'react';
 
 const WordFrequency = ({ data }) => (
-  <table>
+  <table className="word-frequency">
     <thead>
       <tr>
         <th>Word</th>

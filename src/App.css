@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form {
+  margin-right: 20px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.submit-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #03a9f4;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0288d1;
+}
+
+.chart {
+  margin-right: 20px;
+  min-width: 400px;
+}
+
+.export-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.export-btn:hover {
+  background-color: #388e3c;
+}
+
+.table {
+  flex-grow: 1;
+  min-width: 200px;
+}
+
+.word-frequency {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.word-frequency th {
+  background-color: #03a9f4;
+  color: #fff;
+  padding: 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.word-frequency td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.word-frequency tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
