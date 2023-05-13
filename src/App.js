@@ -1,5 +1,5 @@
 import React from 'react';
-import WordFrequency from './components/ExportButton';
+import WordFrequency from './components/WordFrequency';
 import HistogramChart from './components/HistogramChart';
 import ExportButton from './components/ExportButton';
 
