@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import WordFrequency from '../components/ExportButton';
+import HistogramChart from '../components/HistogramChart';
+import ExportButton from '../components/ExportButton';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: null,
+      histogramData: null,
+    };
+  }
+
+  handleFetch = async () => {
+    const response = await fetch('https://www.terriblytinytales.com/test.txt');
+    const text = await response.text();
+    const words = text.split(/\W+/);
+    const frequencyMap = {};
+    words.forEach((word) => {
+      if (word) {
+        frequencyMap[word.toLowerCase()] = (frequencyMap[word.toLowerCase()] || 0) + 1;
+      }
+    });
+    const frequencyArray = Object.entries(frequencyMap).sort((a, b) => b[1] - a[1]).slice(0, 20);
+    const histogramData = frequencyArray.map(([word, frequency]) => ({ word, frequency }));
+    this.setState({ data: frequencyMap, histogramData });
+  };
+
+  render() {
+    const { data, histogramData } = this.state;
+    return (
+      <div>
+        <button onClick={this.handleFetch}>Submit</button>
+        {histogramData && <HistogramChart data={histogramData} />}
+        {histogramData && <ExportButton data={histogramData} />}
+        {data && <WordFrequency data={data} />}
+      </div>
+    );
+  }
 }
 
 export default App;
