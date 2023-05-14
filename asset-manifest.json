@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/terriblytinytales-assignment/static/css/main.3b03cdea.css",
-    "main.js": "/terriblytinytales-assignment/static/js/main.1648c443.js",
+    "main.css": "/terriblytinytales-assignment/static/css/main.d1375a58.css",
+    "main.js": "/terriblytinytales-assignment/static/js/main.628263a4.js",
     "static/js/787.52d71a58.chunk.js": "/terriblytinytales-assignment/static/js/787.52d71a58.chunk.js",
     "index.html": "/terriblytinytales-assignment/index.html",
-    "main.3b03cdea.css.map": "/terriblytinytales-assignment/static/css/main.3b03cdea.css.map",
-    "main.1648c443.js.map": "/terriblytinytales-assignment/static/js/main.1648c443.js.map",
+    "main.d1375a58.css.map": "/terriblytinytales-assignment/static/css/main.d1375a58.css.map",
+    "main.628263a4.js.map": "/terriblytinytales-assignment/static/js/main.628263a4.js.map",
     "787.52d71a58.chunk.js.map": "/terriblytinytales-assignment/static/js/787.52d71a58.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b03cdea.css",
-    "static/js/main.1648c443.js"
+    "static/css/main.d1375a58.css",
+    "static/js/main.628263a4.js"
   ]
 }
